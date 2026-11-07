@@ -3,229 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opulent Oasis Spa - Railway Station Haridwar</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Opulent Oasis Spa - Haridwar</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        woodDark: '#2C1810',
-                        woodMedium: '#4A2A18',
-                        woodWarm: '#6A3B1E',
-                        goldMetallic: '#D4AF37',
-                        goldLight: '#F3E5AB',
-                        tealUniform: '#0D6864',
-                        tealDark: '#084845',
-                        creamBG: '#FAF6F0',
-                        creamCard: '#FFFDF9'
+                        gold: {
+                            100: '#FDF7E7',
+                            300: '#F4D068',
+                            400: '#E6B83B',
+                            500: '#D4AF37',
+                            600: '#AA820A',
+                            700: '#7E6004',
+                        },
+                        emeraldDeep: '#06201B',
+                        oasisTeal: '#0E3B32',
                     },
                     fontFamily: {
                         cinzel: ['Cinzel', 'serif'],
-                        poppins: ['Poppins', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom Styling for Luxury Wooden Signboard Look */
-        .wooden-board {
-            background: linear-gradient(135deg, #4a2a18 0%, #2c1810 50%, #4a2a18 100%);
-            border: 4px solid #d4af37;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,0,0,0.6);
+        /* Custom Shine Effect for Buttons */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
         }
-        .gold-glow-text {
-            color: #d4af37;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 12px rgba(212, 175, 55, 0.4);
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.35) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg);
+            animation: shine 3.5s infinite;
         }
-        .pulse-gold {
-            animation: pulse-border 2s infinite;
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            20% { transform: translateX(100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
         }
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
-            70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+
+        /* Ambient Glow & Radial Gradient Background */
+        .bg-spa-pattern {
+            background-color: #041411;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(14, 59, 50, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(6, 32, 27, 0.9) 0%, #030F0D 100%);
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FFF0BD 0%, #D4AF37 50%, #AA820A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="bg-creamBG font-poppins text-gray-800 pb-24 selection:bg-tealUniform selection:text-white">
+<body class="bg-spa-pattern text-gray-200 font-sans min-h-screen pb-24 selection:bg-gold-500 selection:text-black">
 
-    <!-- Top Luxury Header Bar -->
-    <header class="bg-woodDark text-goldLight py-2 px-4 border-b border-goldMetallic/40 text-center text-xs tracking-widest uppercase font-cinzel">
-        ✨ Premium Luxury Spa & Wellness Center Haridwar ✨
+    <!-- Header Section -->
+    <header class="w-full py-6 px-4 text-center border-b border-gold-500/20 bg-emeraldDeep/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-md mx-auto flex flex-col items-center">
+            <div class="w-14 h-14 rounded-full border-2 border-gold-500 flex items-center justify-center bg-oasisTeal shadow-lg mb-2 gold-border-glow">
+                <i class="fa-solid fa-spa text-2xl text-gold-400"></i>
+            </div>
+            <h1 class="font-cinzel text-2xl font-bold tracking-wider gold-text-gradient uppercase">Opulent Oasis Spa</h1>
+            <p class="text-xs text-gold-300/80 font-light tracking-widest uppercase mt-0.5"><i class="fa-solid fa-location-dot text-gold-400 mr-1"></i> Haridwar Railway Station</p>
+        </div>
     </header>
 
-    <!-- Hero Wooden Banner (Inspired directly from image's main signboard) -->
-    <section class="p-4 pt-6 max-w-md mx-auto">
-        <div class="wooden-board rounded-2xl p-6 text-center relative overflow-hidden">
-            <!-- Decorative Lotus Motif Top -->
-            <div class="text-goldMetallic text-3xl mb-1">
-                <i class="fa-solid font-cinzel">🪷</i>
-            </div>
+    <!-- Main Container (Portrait Optimized) -->
+    <main class="max-w-md mx-auto px-4 py-6 space-y-8">
+
+        <!-- Hero Section -->
+        <section class="relative rounded-3xl overflow-hidden border border-gold-500/30 bg-gradient-to-b from-oasisTeal/60 to-emeraldDeep/90 p-6 text-center gold-border-glow">
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl"></div>
             
-            <h1 class="font-cinzel text-3xl sm:text-4xl font-bold gold-glow-text tracking-wider leading-tight mb-3">
-                Opulent Oasis Spa
-            </h1>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-gold-500/10 text-gold-300 border border-gold-500/30 mb-3">
+                ★ Premium Luxury Experience ★
+            </span>
             
-            <div class="w-24 h-0.5 bg-goldMetallic mx-auto my-3"></div>
-            
-            <!-- Prominent Call Badge inside Wooden Signboard -->
-            <div class="bg-woodDark/80 border border-goldMetallic/50 rounded-xl p-3 my-4 backdrop-blur-sm">
-                <p class="text-goldLight text-xs tracking-wider uppercase font-semibold">Instant Booking & Enquiries</p>
-                <a href="tel:9528929832" class="block font-cinzel text-2xl font-bold text-white hover:text-goldLight transition-colors mt-1">
-                    <i class="fa-solid fa-phone text-goldMetallic mr-2 text-lg"></i>9528929832
+            <h2 class="font-cinzel text-2xl font-bold text-white mb-2 leading-tight">
+                Rejuvenate Your Mind, Body & Soul
+            </h2>
+            <p class="text-xs text-gray-300 mb-6 leading-relaxed">
+                Step into tranquility near Haridwar Railway Station. Professional therapies designed for ultimate relaxation and stress relief.
+            </p>
+
+            <!-- Quick Action Call/WhatsApp Buttons in Hero -->
+            <div class="grid grid-cols-2 gap-3 mb-2">
+                <a href="tel:9528929832" class="btn-shine bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-slate-950 font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 active:scale-95 transition-transform">
+                    <i class="fa-solid fa-phone text-lg"></i>
+                    <span>Call Now</span>
+                </a>
+                <a href="https://wa.me/919528929832" target="_blank" class="btn-shine bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 transition-transform">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>WhatsApp</span>
                 </a>
             </div>
+        </section>
 
-            <div class="flex items-center justify-center text-goldLight/90 text-sm font-medium mt-3">
-                <i class="fa-solid fa-location-dot text-goldMetallic mr-2"></i>
-                <span>Railway Station Haridwar</span>
+        <!-- Services Section -->
+        <section class="space-y-4">
+            <div class="flex justify-between items-end border-b border-gold-500/20 pb-2">
+                <div>
+                    <h3 class="font-cinzel text-xl font-bold text-gold-400">Our Spa Therapies</h3>
+                    <p class="text-xs text-gray-400">Luxury treatments for complete healing</p>
+                </div>
+                <i class="fa-solid fa-lotus text-gold-500/40 text-2xl"></i>
             </div>
-        </div>
-    </section>
 
-    <!-- Direct Quick Call Action Button -->
-    <section class="px-4 max-w-md mx-auto my-4">
-        <a href="tel:9528929832" class="w-full bg-tealUniform hover:bg-tealDark text-white py-4 px-6 rounded-2xl shadow-xl font-bold text-lg flex items-center justify-center space-x-3 border-2 border-goldMetallic pulse-gold transition transform active:scale-95">
-            <i class="fa-solid fa-phone-volume text-goldMetallic text-xl"></i>
-            <span>अभी कॉल करें (Call Now)</span>
-        </a>
-    </section>
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Service 1 -->
+                <div class="p-4 rounded-2xl bg-emeraldDeep/80 border border-gold-500/20 flex items-center gap-4 hover:border-gold-500/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-oasisTeal flex-shrink-0 flex items-center justify-center border border-gold-500/30 text-gold-400 text-2xl">
+                        <i class="fa-solid fa-hot-tub-person"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="font-semibold text-white text-base">Full Body Massage</h4>
+                        <p class="text-xs text-gray-400 mt-0.5">Deep muscle relaxation, stress release, and revitalizing blood flow.</p>
+                    </div>
+                </div>
 
-    <!-- Spa Highlights / About Section -->
-    <section class="px-4 py-4 max-w-md mx-auto">
-        <div class="bg-creamCard rounded-2xl p-5 border border-amber-900/10 shadow-md">
-            <h2 class="font-cinzel text-xl font-bold text-woodDark text-center mb-2 flex items-center justify-center">
-                <span class="w-8 h-0.5 bg-goldMetallic mr-2"></span>
-                Welcome to Serenity
-                <span class="w-8 h-0.5 bg-goldMetallic ml-2"></span>
-            </h2>
-            <p class="text-sm text-gray-700 text-center leading-relaxed">
-                हरिद्वार रेलवे स्टेशन के पास सबसे लक्जरी और रिलैक्सिंग स्पा अनुभव। पेशेवर थेरेपिस्ट द्वारा शुद्ध जैविक तेलों और प्रीमियम तकनीकों से बॉडी, माइंड और सोल को रीविटलाइज करें।
-            </p>
+                <!-- Service 2 -->
+                <div class="p-4 rounded-2xl bg-emeraldDeep/80 border border-gold-500/20 flex items-center gap-4 hover:border-gold-500/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-oasisTeal flex-shrink-0 flex items-center justify-center border border-gold-500/30 text-gold-400 text-2xl">
+                        <i class="fa-solid fa-oil-well"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="font-semibold text-white text-base">Aromatherapy Spa</h4>
+                        <p class="text-xs text-gray-400 mt-0.5">Infused with soothing essential oils for peace and mental clarity.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-4 rounded-2xl bg-emeraldDeep/80 border border-gold-500/20 flex items-center gap-4 hover:border-gold-500/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-oasisTeal flex-shrink-0 flex items-center justify-center border border-gold-500/30 text-gold-400 text-2xl">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="font-semibold text-white text-base">Deep Tissue Massage</h4>
+                        <p class="text-xs text-gray-400 mt-0.5">Targets deep muscle layers to relieve chronic tension and soreness.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-4 rounded-2xl bg-emeraldDeep/80 border border-gold-500/20 flex items-center gap-4 hover:border-gold-500/40 transition">
+                    <div class="w-14 h-14 rounded-xl bg-oasisTeal flex-shrink-0 flex items-center justify-center border border-gold-500/30 text-gold-400 text-2xl">
+                        <i class="fa-solid fa-shower"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h4 class="font-semibold text-white text-base">Jacuzzi & Steam Bath</h4>
+                        <p class="text-xs text-gray-400 mt-0.5">Detoxify your skin and relax in our luxurious hydrotherapy setup.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights / Why Choose Us -->
+        <section class="bg-gradient-to-br from-oasisTeal to-emeraldDeep p-5 rounded-2xl border border-gold-500/20 space-y-3">
+            <h3 class="font-cinzel text-lg font-bold text-gold-300 text-center">Why Choose Opulent Oasis?</h3>
             
-            <!-- Quick Features -->
-            <div class="grid grid-cols-3 gap-2 mt-5 text-center">
-                <div class="p-3 rounded-xl bg-amber-50 border border-amber-100">
-                    <i class="fa-solid fa-spa text-tealUniform text-xl mb-1"></i>
-                    <p class="text-xs font-semibold text-woodDark">Expert Staff</p>
+            <div class="grid grid-cols-2 gap-3 text-center pt-2">
+                <div class="p-3 rounded-xl bg-black/30 border border-gold-500/10">
+                    <i class="fa-solid fa-user-shield text-gold-400 text-xl mb-1"></i>
+                    <h5 class="text-xs font-semibold text-white">Certified Staff</h5>
+                    <p class="text-[10px] text-gray-400">Professional therapists</p>
                 </div>
-                <div class="p-3 rounded-xl bg-amber-50 border border-amber-100">
-                    <i class="fa-solid fa-leaf text-tealUniform text-xl mb-1"></i>
-                    <p class="text-xs font-semibold text-woodDark">Organic Oils</p>
+                <div class="p-3 rounded-xl bg-black/30 border border-gold-500/10">
+                    <i class="fa-solid fa-pump-soap text-gold-400 text-xl mb-1"></i>
+                    <h5 class="text-xs font-semibold text-white">Hygienic Environment</h5>
+                    <p class="text-[10px] text-gray-400">Clean & sanitized rooms</p>
                 </div>
-                <div class="p-3 rounded-xl bg-amber-50 border border-amber-100">
-                    <i class="fa-solid fa-gem text-tealUniform text-xl mb-1"></i>
-                    <p class="text-xs font-semibold text-woodDark">Luxury Ambience</p>
+                <div class="p-3 rounded-xl bg-black/30 border border-gold-500/10">
+                    <i class="fa-solid fa-clock text-gold-400 text-xl mb-1"></i>
+                    <h5 class="text-xs font-semibold text-white">Prime Location</h5>
+                    <p class="text-[10px] text-gray-400">Near Railway Station</p>
+                </div>
+                <div class="p-3 rounded-xl bg-black/30 border border-gold-500/10">
+                    <i class="fa-solid fa-gem text-gold-400 text-xl mb-1"></i>
+                    <h5 class="text-xs font-semibold text-white">Luxury Ambience</h5>
+                    <p class="text-[10px] text-gray-400">Relaxing & cozy vibe</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section class="px-4 py-2 max-w-md mx-auto">
-        <h2 class="font-cinzel text-xl font-bold text-woodDark mb-4 text-center">
-            Our Premium Services
-        </h2>
-
-        <div class="space-y-3">
-            <!-- Service Card 1 -->
-            <div class="bg-creamCard p-4 rounded-xl border-l-4 border-tealUniform shadow-sm flex items-center justify-between">
-                <div>
-                    <h3 class="font-bold text-woodDark">Aroma Therapy Massage</h3>
-                    <p class="text-xs text-gray-500">तानाव दूर करने और गहरी शांति के लिए</p>
-                </div>
-                <span class="text-tealUniform text-xs font-semibold bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">60/90 Min</span>
-            </div>
-
-            <!-- Service Card 2 -->
-            <div class="bg-creamCard p-4 rounded-xl border-l-4 border-goldMetallic shadow-sm flex items-center justify-between">
-                <div>
-                    <h3 class="font-bold text-woodDark">Deep Tissue Therapy</h3>
-                    <p class="text-xs text-gray-500">मांसपेशियों के दर्द से तुरंत राहत</p>
-                </div>
-                <span class="text-tealUniform text-xs font-semibold bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">60/90 Min</span>
-            </div>
-
-            <!-- Service Card 3 -->
-            <div class="bg-creamCard p-4 rounded-xl border-l-4 border-tealUniform shadow-sm flex items-center justify-between">
-                <div>
-                    <h3 class="font-bold text-woodDark">Swedish Full Body Spa</h3>
-                    <p class="text-xs text-gray-500">ब्लड सर्कुलेशन और बॉडी रिलैक्सेशन</p>
-                </div>
-                <span class="text-tealUniform text-xs font-semibold bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">60/90 Min</span>
-            </div>
-
-            <!-- Service Card 4 -->
-            <div class="bg-creamCard p-4 rounded-xl border-l-4 border-goldMetallic shadow-sm flex items-center justify-between">
-                <div>
-                    <h3 class="font-bold text-woodDark">Traditional Ayurvedic Spa</h3>
-                    <p class="text-xs text-gray-500">प्राकृतिक जड़ी बूटियों द्वारा बॉडी डिटॉक्स</p>
-                </div>
-                <span class="text-tealUniform text-xs font-semibold bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">60/90 Min</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location & Contact Info Card -->
-    <section class="px-4 py-4 max-w-md mx-auto">
-        <div class="wooden-board rounded-2xl p-5 text-goldLight">
-            <h3 class="font-cinzel text-lg font-bold text-goldMetallic mb-3 text-center border-b border-goldMetallic/30 pb-2">
-                Visit Us / संपर्क करें
+        <!-- Location & Contact Info Card -->
+        <section class="rounded-2xl border border-gold-500/30 bg-emeraldDeep p-5 space-y-4">
+            <h3 class="font-cinzel text-lg font-bold text-gold-400 flex items-center gap-2">
+                <i class="fa-solid fa-location-crosshairs text-gold-500"></i> Location & Booking
             </h3>
-            
+
             <div class="space-y-3 text-sm">
-                <div class="flex items-start space-x-3">
-                    <i class="fa-solid fa-map-location-dot text-goldMetallic text-lg mt-0.5"></i>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-map-location-dot text-gold-400 text-lg mt-0.5"></i>
                     <div>
-                        <p class="font-semibold text-white">Location Address:</p>
-                        <p class="text-xs text-gray-200">Near Railway Station, Haridwar, Uttarakhand</p>
+                        <strong class="text-white block">Address:</strong>
+                        <span class="text-xs text-gray-300">Railway Station, Haridwar, Uttarakhand</span>
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-clock text-goldMetallic text-lg"></i>
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-phone-volume text-gold-400 text-lg"></i>
                     <div>
-                        <p class="font-semibold text-white">Opening Hours:</p>
-                        <p class="text-xs text-gray-200">Open All Days (10:00 AM - 9:00 PM)</p>
+                        <strong class="text-white block">Call / WhatsApp:</strong>
+                        <span class="text-xs text-gray-300">+91 9528929832</span>
                     </div>
                 </div>
 
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-phone text-goldMetallic text-lg"></i>
+                <div class="flex items-center gap-3">
+                    <i class="fa-regular fa-clock text-gold-400 text-lg"></i>
                     <div>
-                        <p class="font-semibold text-white">Direct Phone Call:</p>
-                        <a href="tel:9528929832" class="text-goldMetallic font-bold underline text-base">9528929832</a>
+                        <strong class="text-white block">Opening Hours:</strong>
+                        <span class="text-xs text-gray-300">10:00 AM - 09:00 PM (All Days)</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4 text-xs text-gray-500">
-        © Opulent Oasis Spa, Haridwar. All Rights Reserved.
+    <footer class="text-center py-4 px-4 text-xs text-gray-500 border-t border-gold-500/10">
+        <p>© Opulent Oasis Spa, Haridwar. All Rights Reserved.</p>
     </footer>
 
-    <!-- Mobile Fixed Sticky Bottom Call Bar -->
-    <div class="fixed bottom-0 left-0 right-0 p-3 bg-woodDark border-t-2 border-goldMetallic shadow-2xl z-50 flex items-center justify-between max-w-md mx-auto">
-        <div class="text-left pl-2">
-            <span class="text-goldMetallic text-xs font-semibold block uppercase">Opulent Oasis Spa</span>
-            <span class="text-white text-xs">Railway Station Haridwar</span>
+    <!-- STICKY MOBILE BOTTOM BAR (Shining Action Buttons) -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 p-3 bg-emeraldDeep/95 backdrop-blur-md border-t border-gold-500/30 shadow-2xl">
+        <div class="max-w-md mx-auto grid grid-cols-2 gap-3">
+            <!-- Direct Phone Call Button -->
+            <a href="tel:9528929832" class="btn-shine bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-slate-950 font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-gold-500/30 active:scale-95 transition-transform text-center">
+                <i class="fa-solid fa-phone text-lg animate-bounce"></i>
+                <span class="text-sm">Call Now</span>
+            </a>
+
+            <!-- Direct WhatsApp Button -->
+            <a href="https://wa.me/919528929832" target="_blank" class="btn-shine bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-transform text-center">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span class="text-sm">WhatsApp</span>
+            </a>
         </div>
-        <a href="tel:9528929832" class="bg-tealUniform hover:bg-tealDark text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center space-x-2 border border-goldMetallic shadow-lg active:scale-95 transition">
-            <i class="fa-solid fa-phone text-goldMetallic"></i>
-            <span>Call: 9528929832</span>
-        </a>
     </div>
 
 </body>
